@@ -53,3 +53,10 @@ if __name__ == '__main__':
     session.bulk_save_objects(reviews)
     session.commit()
     session.close()
+class Review(Base):
+    __tablename__ = 'reviews'
+
+    id = Column(Integer(), primary_key=True)
+    score = Column(Integer())
+    comment = Column(String())
+    game_id = Column(Integer(), ForeignKey('games.id'))
